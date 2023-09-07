@@ -17,3 +17,11 @@ def print_report():
     print(f"{'-' * 40}")
 
 
+def get_coffee_choice(user_input):
+    """This function takes user_input(1, 2 or 3) as string returns the name of the coffee that the user has selected"""
+    if user_input == "1":
+        return "espresso"
+    elif user_input == "2":
+        return "latte"
+    else:
+        return "cappuccino"

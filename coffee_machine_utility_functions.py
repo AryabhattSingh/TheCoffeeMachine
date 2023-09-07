@@ -39,3 +39,8 @@ def are_resources_sufficient(coffee_choice):
             print(f"{'-' * 35}")
             return False
     return True
+
+
+def get_coffee_cost(coffee_choice):
+    """This function takes coffee name as parameter and returns the cost of the coffee"""
+    return MENU[coffee_choice]['cost']

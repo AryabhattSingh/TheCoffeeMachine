@@ -25,3 +25,17 @@ def get_coffee_choice(user_input):
         return "latte"
     else:
         return "cappuccino"
+
+
+def are_resources_sufficient(coffee_choice):
+    """This functions takes the coffee choice as parameter, and returns a boolean, after checking whether the current
+    available resources are enough to make the selected coffee"""
+    coffee_details = MENU[coffee_choice]
+    required_ingredients = coffee_details['ingredients']
+    for item in required_ingredients:
+        if required_ingredients[item] > resources[item]:
+            print(f"\n{'-' * 35}")
+            print(f"Sorry, there is NOT enough {item}")
+            print(f"{'-' * 35}")
+            return False
+    return True

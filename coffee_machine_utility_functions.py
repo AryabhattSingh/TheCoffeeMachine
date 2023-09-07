@@ -78,3 +78,34 @@ def insert_money():
         print(f"\n{'+' * 40}")
         print("Kindly enter only positive value.")
         print(f"{'+' * 40}")
+
+
+def update_resources(coffee_choice, cost):
+    """This functions takes the name and the cost of the coffee as parameters and update the resources as well as money
+    in the machine accordingly"""
+    for item in resources:
+        resources[item] -= MENU[coffee_choice]['ingredients'][item]
+
+    global profit
+    profit += cost
+
+
+def clear_console():
+    os.system('cls')
+
+
+def try_transaction(coffee_choice, money_inserted, cost):
+    """This function checks whether the money inserted in the coffee machine by the user is greater than or equal to
+     the cost of the coffee and prints success or failure messages accordingly"""
+    if money_inserted >= cost:
+        change = round(money_inserted - cost, 2)
+        update_resources(coffee_choice, cost)
+        clear_console()
+        print(logo)
+        print(f"\n{'~' * 55}")
+        print(f"Here is ${change} in change. Please collect cash.\n\nEnjoy your {coffee_choice}☕")
+        print(f"{'~' * 55}")
+    else:
+        print(f"\n{'+' * 46}")
+        print("Sorry that's not enough money. Money refunded.")
+        print(f"{'+' * 46}")
